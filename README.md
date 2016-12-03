@@ -7,4 +7,4 @@
 取词TextView来自 https://github.com/burgessjp/GetWordTextView
 
 ###效果图
-![RandomPicker](https://raw.githubusercontent.com/XunMengWinter/source/master/image/WordFeel.jpg)
+![RandomPicker](https://raw.githubusercontent.com/XunMengWinter/source/master/images/WordFeel.jpg)
