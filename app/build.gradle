@@ -1,0 +1,61 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.0"
+    defaultConfig {
+        applicationId "top.wefor.wordfeel"
+        minSdkVersion 16
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        jackOptions {
+            enabled true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+
+    final RETROFIT_VERSION = '2.1.0'
+    final OK_HTTP_VERSION = '3.4.1'
+    final BUTTER_KNIFE_VERSION = '8.4.0'
+
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support:appcompat-v7:25.0.1'
+    compile 'com.android.support:design:25.0.1'
+    testCompile 'junit:junit:4.12'
+
+    //网络层
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'io.reactivex:rxjava:1.1.6'
+    compile "com.squareup.okhttp3:okhttp:$OK_HTTP_VERSION"
+    compile "com.squareup.okhttp3:logging-interceptor:$OK_HTTP_VERSION"
+    compile "com.squareup.retrofit2:retrofit:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
+    compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
+
+    // Butter Knife
+    compile "com.jakewharton:butterknife:$BUTTER_KNIFE_VERSION"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE_VERSION"
+
+    compile 'com.orhanobut:logger:1.14'
+
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/cyan</color>
+    <color name="colorPrimaryDark">@color/cyan</color>
+    <color name="colorAccent">#9ed67e</color>
+
+    <color name="white">#fff</color>
+    <color name="green">#13a63a</color>
+    <color name="orange">#ffbf00</color>
+    <color name="cyan">#5bc</color>
+    <color name="gray">#999</color>
+
+    <color name="beige">#f4eecc</color>
+    <color name="beige_half">#80f4eecc</color>
+    <color name="cyan_light">#cdfae6</color>
+</resources>

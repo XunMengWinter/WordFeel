@@ -1,0 +1,22 @@
+<resources>
+    <dimen name="app_bar_height">180dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="text_margin">16dp</dimen>
+
+    <!--仿照HTML的字体大小命名-->
+    <dimen name="h4">16sp</dimen>
+    <dimen name="h5">14sp</dimen>
+    <dimen name="h6">12sp</dimen>
+
+    <!--默认的主边距-->
+    <dimen name="main_margin">16dp</dimen>
+
+    <!--默认的子边距，即同一个layout里面子视图直接的间隔-->
+    <dimen name="child_margin">8dp</dimen>
+
+    <!--单词解释条的高度-->
+    <dimen name="height_word_explain">128dp</dimen>
+
+    <!--图片的默认尺寸(当宽高相等时)-->
+    <dimen name="size_image">72dp</dimen>
+</resources>
