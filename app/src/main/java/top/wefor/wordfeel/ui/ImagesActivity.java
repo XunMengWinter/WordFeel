@@ -5,6 +5,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -98,9 +99,10 @@ public class ImagesActivity extends AppCompatActivity {
                         String imageUrls = getString(R.string.image_urls);
                         imageUrls = imageUrls.replace(" ", "");
                         Logger.i(imageUrls);
-                        String[] imageUrlArray = imageUrls.split("http");
+                        String[] imageUrlArray = imageUrls.split("https://");
                         for (String imageUrl : imageUrlArray) {
-                            imageUrl = "http" + imageUrl;
+                            if (TextUtils.isEmpty(imageUrl)) continue;
+                            imageUrl = "https://" + imageUrl;
                             ImageEntity imageEntity = new ImageEntity();
                             imageEntity.url = imageUrl;
                             mImageList.add(imageEntity);
