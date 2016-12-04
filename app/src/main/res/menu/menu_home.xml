@@ -1,0 +1,17 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:app="http://schemas.android.com/apk/res-auto"
+      xmlns:tools="http://schemas.android.com/tools"
+      tools:context="top.wefor.wordfeel.ui.HomeActivity">
+    <item
+        android:id="@+id/action_images"
+        android:icon="@drawable/ic_collections_white_24dp"
+        android:title="@string/images"
+        app:showAsAction="always"
+        />
+    <item
+        android:id="@+id/action_about"
+        android:icon="@drawable/ic_nature_people_white_24dp"
+        android:title="@string/about"
+        app:showAsAction="always"
+        />
+</menu>

@@ -99,7 +99,7 @@ A senior EU official also made it clear the agreements would fall through if Ukr
 Brussels put off signing the landmark agreements after a Ukrainian court jailed former prime minister Tymoshenko, President Viktor Yanukovich\'s main opponent, on an abuse- of-office charge in October 2011.
 The EU says the Tymoshenko case and those of other prosecuted opposition politicians are examples of selective justice and are a barrier to Ukraine\'s ambition of European integration.
 Two other issues raised by the bloc are related to the electoral system, which came under fire from Western observers following the parliamentary election in October, and legal reforms needed to bring Ukraine closer to EU standards.
-"The European Union is committed to signing the association agreement\...provided there is determined action and tangible progress on the three key issues: selective justice, addressing the shortcomings of the October election and advancing the association agenda reforms,\'\' Fuele told reporters. "After several recent setbacks in Ukraine there is a need to regain confidence that Ukraine could emerge as a modern European country.\'\'
+"The European Union is committed to signing the association agreement\…provided there is determined action and tangible progress on the three key issues: selective justice, addressing the shortcomings of the October election and advancing the association agenda reforms,\'\' Fuele told reporters. "After several recent setbacks in Ukraine there is a need to regain confidence that Ukraine could emerge as a modern European country.\'\'
 Fuele, whose visit may set the tone of a Feb. 25 EU-Ukraine summit, said the two agreements could be signed at the EU\'s Eastern Partnership summit in November if the former Soviet republic met the bloc\'s conditions.
 But he warned the Kiev government that joining a customs union with Russia, aggressively promoted by Moscow, would ruin those prospects.
 "Joining any structure which would imply transferring the ability to set tariffs and define its trade policy to a supranational body would mean that Ukraine would no longer be able to implement the tariff dismantling agreed with the European Union in the context of the DCFTA [Deep and Comprehensive Free Trade Agreement],\'\' Fuele said in a speech at the Ukrainian parliament.
@@ -109,5 +109,30 @@ Fuele urged Ukraine to make sure it adopts and implements laws that actually wor
 The EU suspended some of its Ukraine financial aid programs after Kiev adopted a law on state procurement which Brussels said was riddled with loopholes and thus failed to ensure transparent and competitive procedures.
     </string>
 
+    <string name="image_urls">
+https://static.baydn.com/media/media_store/image/f1672263006c6e28bb9dee7652fa4c f6.jpg https://static.baydn.com/media/media_store/image/8c997fae9ebb2b22ecc098a379cc2c a3.jpg https://static.baydn.com/media/media_store/image/2a4616f067285b4bd59fe5401cd71 06b.jpeg https://static.baydn.com/media/media_store/image/b0e3ab329c8d8218d2af5c8dfdc211 25.jpg
+
+https://static.baydn.com/media/media_store/image/670abb28408a9a0fc3dd9666e5ca1 584.jpeg https://static.baydn.com/media/media_store/image/1e8d675468ab61f4e5bdebd4bcb5f0 07.jpeg https://static.baydn.com/media/media_store/image/9b2f93cbfa104dae1e67f540ff14a4c 2.jpg https://static.baydn.com/media/media_store/image/f5e0631e00a09edbbf2eb21eb71b4d 3c.jpeg
+    </string>
+
     <string name="winters_email">XunMengWinter@gmail.com</string>
+    <string name="about">about</string>
+    <string name="images">images</string>
+
+    <string name="about_detail">About WordFeel\n\n
+        Feel the word!\n\n
+        Source\n
+        https://github.com/XunMengWinter/WordFeel\n\n\n
+        关于Winter\n\n
+        一枚热爱艺术的码农。\n\n
+        站酷\n
+        http://icewinter.zcool.com.cn</string>
+    <string name="error_info">遇见了一个bug，快点捉住它！</string>
+
+
+    <string name="activity_images">Images</string>
+    <string name="open_image_folder">Open image folder</string>
+    <string name="delete">Delete</string>
+    <string name="delete_folder">Delete Folder</string>
+
 </resources>

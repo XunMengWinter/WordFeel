@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello"
-            android:textColor="@color/colorPrimary"
+            android:textColor="?attr/colorPrimary"
             android:textIsSelectable="true"
             android:textSize="@dimen/h4"/>
 
@@ -54,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/explain_word_tv"
-            android:layout_marginTop="@dimen/main_margin"
+            android:layout_marginTop="@dimen/child_margin"
             android:text="n.哈喽，倪虹，嘿咯"
             android:textIsSelectable="true"/>
 

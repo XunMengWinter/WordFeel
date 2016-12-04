@@ -33,6 +33,7 @@ public class WordExplainBar extends LinearLayout {
 
     private WordExplainEntity mWordExplainEntity;
     private OnHideListener mOnHideListener;
+    private boolean isVisible = true;
 
 
     public WordExplainBar(Context context) {
@@ -100,20 +101,39 @@ public class WordExplainBar extends LinearLayout {
         mExplainWordTv.setText(mWordExplainEntity.word);
         mExplainPhoneticsTv.setText(mWordExplainEntity.phonetics);
         mExplainExplainTv.setText(mWordExplainEntity.explain);
+        mExplainAudioIb.setEnabled(true);
         show();
     }
 
     /*显示该控件*/
     public void show() {
+        isVisible = true;
         ensureInitClickEvent();
         mExplainLayout.animate().scaleY(1).withStartAction(() -> mExplainLayout.setVisibility(VISIBLE));
     }
 
-    /*隐藏该控件*/
+    /*隐藏该控件,带隐藏动画*/
     public void hide() {
-        mExplainLayout.animate().scaleY(0).withEndAction(() -> mExplainLayout.setVisibility(GONE));
+        hide(true);
+    }
+
+    /**
+     * 隐藏该控件
+     * @param isShowAnimation 是否显示隐藏动画
+     */
+    public void hide(boolean isShowAnimation) {
+        if (isShowAnimation)
+            mExplainLayout.animate().scaleY(0).withEndAction(() -> mExplainLayout.setVisibility(GONE));
+        else
+            mExplainLayout.setVisibility(GONE);
+
+        isVisible = false;
         if (mOnHideListener != null)
             mOnHideListener.onHide();
+    }
+
+    public boolean isVisible() {
+        return isVisible;
     }
 
     /*为该控件设置隐藏监听器*/

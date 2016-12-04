@@ -30,18 +30,20 @@ android {
 }
 
 dependencies {
-
     final RETROFIT_VERSION = '2.1.0'
     final OK_HTTP_VERSION = '3.4.1'
     final BUTTER_KNIFE_VERSION = '8.4.0'
+    final SUPPORT_LIBRARY_VERSION = '25.0.1'
 
     compile fileTree(dir: 'libs', include: ['*.jar'])
+    testCompile 'junit:junit:4.12'
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:25.0.1'
-    compile 'com.android.support:design:25.0.1'
-    testCompile 'junit:junit:4.12'
+
+    compile "com.android.support:appcompat-v7:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:design:$SUPPORT_LIBRARY_VERSION"
+    compile "com.android.support:cardview-v7:$SUPPORT_LIBRARY_VERSION"
 
     //网络层
     compile 'io.reactivex:rxandroid:1.2.1'
@@ -52,10 +54,13 @@ dependencies {
     compile "com.squareup.retrofit2:converter-gson:$RETROFIT_VERSION"
     compile "com.squareup.retrofit2:adapter-rxjava:$RETROFIT_VERSION"
 
-    // Butter Knife
+    // ButterKnife: 绑定视图控件id
     compile "com.jakewharton:butterknife:$BUTTER_KNIFE_VERSION"
     annotationProcessor "com.jakewharton:butterknife-compiler:$BUTTER_KNIFE_VERSION"
-
+    // picasso: 图片加载
+    compile 'com.squareup.picasso:picasso:2.5.2'
+    // logger: 日志输出
     compile 'com.orhanobut:logger:1.14'
-
+    // RxPermissions: 与RxJava结合使用的权限帮助库
+    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.0@aar'
 }

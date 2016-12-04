@@ -33,7 +33,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         sApp = this;
-
+        if (!BuildConfig.DEBUG)
+            CrashHandler.getInstance().init(getApplicationContext());
     }
 
     public static void showToast(CharSequence msg) {

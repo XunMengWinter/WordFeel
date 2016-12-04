@@ -6,8 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="top.wefor.wordfeel.ui.ScrollingActivity"
-    tools:showIn="@layout/activity_scrolling"
+    tools:context="top.wefor.wordfeel.ui.HomeActivity"
+    tools:showIn="@layout/activity_home"
     >
 
     <LinearLayout
@@ -17,6 +17,7 @@
         >
 
         <top.wefor.wordfeel.WordTextView.WordTextView
+            app:selectedColor="?attr/colorPrimaryDark"
             android:id="@+id/article_wtv"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

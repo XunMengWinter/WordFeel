@@ -1,13 +1,19 @@
 package top.wefor.wordfeel.ui;
 
+import android.Manifest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.tbruyelle.rxpermissions.RxPermissions;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -18,6 +24,7 @@ import top.wefor.wordfeel.model.result.WordResult;
 import top.wefor.wordfeel.net.HttpObserver;
 import top.wefor.wordfeel.net.MainApi;
 import top.wefor.wordfeel.ui.widget.WordExplainBar;
+import top.wefor.wordfeel.utils.PermissionUtil;
 
 /**
  * Created on 2016/12/3.
@@ -25,7 +32,7 @@ import top.wefor.wordfeel.ui.widget.WordExplainBar;
  * @author ice
  * @GitHub https://github.com/XunMengWinter
  */
-public class ScrollingActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity {
 
     MainApi mMainApi = new MainApi();
 
@@ -40,7 +47,7 @@ public class ScrollingActivity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scrolling);
+        setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         setSupportActionBar(mToolbar);
 
@@ -50,7 +57,8 @@ public class ScrollingActivity extends AppCompatActivity {
 
         mFab.setOnClickListener(view -> sendEmail(getString(R.string.winters_email)));
         mWordExplainBar.setOnHideListener(() -> mArticleWtv.dismissSelected());
-        mWordExplainBar.hide();
+
+        mWordExplainBar.hide(false);
     }
 
     /*获取单词的解释*/
@@ -86,6 +94,66 @@ public class ScrollingActivity extends AppCompatActivity {
         intent.putExtra(Intent.EXTRA_TEXT, "Hi, Winter. I just want to tell you ...");
 
         startActivity(Intent.createChooser(intent, "Send Email"));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_home, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.action_images:
+                RxPermissions rp = new RxPermissions(this);
+                if (rp.isGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                        && rp.isGranted(Manifest.permission.READ_EXTERNAL_STORAGE)) {
+                    goImageAty();
+                } else {
+                    rp.request(Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                            Manifest.permission.READ_EXTERNAL_STORAGE)
+                            .subscribe(aBoolean -> {
+                                if (aBoolean)
+                                    goImageAty();
+                                else
+                                    goPermissionPage();
+                            });
+                }
+
+                return true;
+            case R.id.action_about:
+                new AlertDialog.Builder(this)
+                        .setTitle(getString(R.string.about))
+                        .setView(getLayoutInflater().inflate(R.layout.dialog_about, null))
+                        .create().show();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    /*前往 ImagesActivity*/
+    private void goImageAty() {
+        Intent intent = new Intent(this, ImagesActivity.class);
+        startActivity(intent);
+    }
+
+    /*弹出询问前往权限设置页面*/
+    private void goPermissionPage() {
+        new AlertDialog.Builder(this)
+                .setMessage(getString(R.string.app_name) + "需要获取 文件读写权限 才能继续，是否前往设置？")
+                .setPositiveButton("前往设置", (dialogInterface, i) -> PermissionUtil.goPermissionPage(this))
+                .setNegativeButton("下次再说", null)
+                .create().show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (mWordExplainBar.isVisible()) {
+            mWordExplainBar.hide();
+            return;
+        }
+        super.onBackPressed();
     }
 
 }
