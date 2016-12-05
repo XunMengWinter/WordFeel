@@ -3,6 +3,7 @@
 Study of TextView and Picasso.
 
 *Get the clicked word and explain in TextView;
+
 *Manage image in RecycerView Adapter.
 
  单词查询来自 扇贝开放API。
