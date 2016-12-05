@@ -63,4 +63,5 @@ dependencies {
     compile 'com.orhanobut:logger:1.14'
     // RxPermissions: 与RxJava结合使用的权限帮助库
     compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.0@aar'
+    compile project(path: ':wordexplainbar')
 }

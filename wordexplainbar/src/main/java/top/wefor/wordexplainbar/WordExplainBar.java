@@ -1,4 +1,4 @@
-package top.wefor.wordfeel.ui.widget;
+package top.wefor.wordexplainbar;
 
 import android.content.Context;
 import android.media.AudioManager;
@@ -7,10 +7,9 @@ import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatImageButton;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import top.wefor.wordfeel.R;
 
 /**
  * Created on 2016/12/3.
@@ -24,12 +23,13 @@ import top.wefor.wordfeel.R;
 
 public class WordExplainBar extends LinearLayout {
 
-    LinearLayout mExplainLayout;
-    AppCompatImageButton mExplainShrinkIb;  //收起按钮
-    TextView mExplainWordTv;    //用于显示单词
-    TextView mExplainPhoneticsTv;   //用于显示音标
-    TextView mExplainExplainTv; //用于显示解释
-    AppCompatImageButton mExplainAudioIb;   //音频按钮，点击后根据audioUrl发音。
+    //公开控件，最大限度自定义。结合编辑器的自动补全，.m可筛选出所有控件。
+    public LinearLayout mExplainLayout;
+    public AppCompatImageButton mExplainShrinkIb;  //收起按钮
+    public TextView mExplainWordTv;    //用于显示单词
+    public TextView mExplainPhoneticsTv;   //用于显示音标
+    public TextView mExplainExplainTv; //用于显示解释
+    public AppCompatImageButton mExplainAudioIb;   //音频按钮，点击后根据audioUrl发音。
 
     private WordExplainEntity mWordExplainEntity;
     private OnHideListener mOnHideListener;
@@ -65,12 +65,20 @@ public class WordExplainBar extends LinearLayout {
         mExplainAudioIb = (AppCompatImageButton) findViewById(R.id.explain_audio_ib);
 
         if (mExplainShrinkIb != null)
-            mExplainShrinkIb.setOnClickListener(view -> hide());
+            mExplainShrinkIb.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    hide();
+                }
+            });
 
         if (mExplainAudioIb != null)
-            mExplainAudioIb.setOnClickListener(view -> {
-                if (mWordExplainEntity != null && mWordExplainEntity.audioUrl != null)
-                    playAudio(mWordExplainEntity.audioUrl);
+            mExplainAudioIb.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if (mWordExplainEntity != null && mWordExplainEntity.audioUrl != null)
+                        playAudio(mWordExplainEntity.audioUrl);
+                }
             });
     }
 
@@ -89,7 +97,13 @@ public class WordExplainBar extends LinearLayout {
             player.setDataSource(audioUrl);
             player.prepare();
             player.start();
-            player.setOnCompletionListener(mediaPlayer -> mExplainAudioIb.setEnabled(true));
+            player.setOnCompletionListener(
+                    new MediaPlayer.OnCompletionListener() {
+                        @Override
+                        public void onCompletion(MediaPlayer mediaPlayer) {
+                            mExplainAudioIb.setEnabled(true);
+                        }
+                    });
         } catch (Exception e) {
             mExplainAudioIb.setEnabled(true);
         }
@@ -109,7 +123,12 @@ public class WordExplainBar extends LinearLayout {
     public void show() {
         isVisible = true;
         ensureInitClickEvent();
-        mExplainLayout.animate().scaleY(1).withStartAction(() -> mExplainLayout.setVisibility(VISIBLE));
+        mExplainLayout.animate().y(0).withStartAction(new Runnable() {
+            @Override
+            public void run() {
+                mExplainLayout.setVisibility(VISIBLE);
+            }
+        });
     }
 
     /*隐藏该控件,带隐藏动画*/
@@ -119,11 +138,17 @@ public class WordExplainBar extends LinearLayout {
 
     /**
      * 隐藏该控件
+     *
      * @param isShowAnimation 是否显示隐藏动画
      */
     public void hide(boolean isShowAnimation) {
         if (isShowAnimation)
-            mExplainLayout.animate().scaleY(0).withEndAction(() -> mExplainLayout.setVisibility(GONE));
+            mExplainLayout.animate().y(mExplainLayout.getHeight()).withEndAction(new Runnable() {
+                @Override
+                public void run() {
+                    mExplainLayout.setVisibility(GONE);
+                }
+            });
         else
             mExplainLayout.setVisibility(GONE);
 

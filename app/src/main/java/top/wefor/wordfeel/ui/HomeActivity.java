@@ -17,13 +17,13 @@ import com.tbruyelle.rxpermissions.RxPermissions;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import top.wefor.wordexplainbar.WordExplainBar;
 import top.wefor.wordfeel.R;
-import top.wefor.wordfeel.WordTextView.WordTextView;
+import top.wefor.wordfeel.ui.widget.WordTextView.WordTextView;
 import top.wefor.wordfeel.model.entity.WordEntity;
 import top.wefor.wordfeel.model.result.WordResult;
 import top.wefor.wordfeel.net.HttpObserver;
 import top.wefor.wordfeel.net.MainApi;
-import top.wefor.wordfeel.ui.widget.WordExplainBar;
 import top.wefor.wordfeel.utils.PermissionUtil;
 
 /**
@@ -57,7 +57,6 @@ public class HomeActivity extends AppCompatActivity {
 
         mFab.setOnClickListener(view -> sendEmail(getString(R.string.winters_email)));
         mWordExplainBar.setOnHideListener(() -> mArticleWtv.dismissSelected());
-
         mWordExplainBar.hide(false);
     }
 

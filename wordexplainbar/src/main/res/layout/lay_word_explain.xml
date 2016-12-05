@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:id="@+id/explain_layout"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:layout_gravity="bottom"
+              android:clickable="true"
+              android:orientation="vertical"
+    >
+
+    <android.support.v7.widget.AppCompatImageButton
+        android:id="@+id/explain_shrink_ib"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f1ebdf"
+        android:src="@drawable/ic_keyboard_arrow_down_light_green_600_24dp"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f4eecc"
+        android:padding="16dp"
+        >
+
+        <TextView
+            android:id="@+id/explain_word_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Hello"
+            android:textColor="?attr/colorPrimary"
+            android:textIsSelectable="true"
+            android:textSize="16sp"/>
+
+        <TextView
+            android:id="@+id/explain_phonetics_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/explain_word_tv"
+            android:layout_marginLeft="8dp"
+            android:layout_toRightOf="@id/explain_word_tv"
+            android:text="/aaaa/"
+            android:textIsSelectable="true"/>
+
+        <android.support.v7.widget.AppCompatImageButton
+            android:id="@+id/explain_audio_ib"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@null"
+            android:src="@drawable/selector_volume_green"/>
+
+        <TextView
+            android:id="@+id/explain_explain_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/explain_word_tv"
+            android:layout_marginTop="8dp"
+            android:text="n.哈喽，倪虹，嘿咯"
+            android:textIsSelectable="true"/>
+
+    </RelativeLayout>
+</LinearLayout>

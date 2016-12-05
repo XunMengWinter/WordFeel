@@ -16,7 +16,7 @@
         android:paddingBottom="@dimen/height_word_explain"
         >
 
-        <top.wefor.wordfeel.WordTextView.WordTextView
+        <top.wefor.wordfeel.ui.widget.WordTextView.WordTextView
             app:selectedColor="?attr/colorPrimaryDark"
             android:id="@+id/article_wtv"
             android:layout_width="wrap_content"

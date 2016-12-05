@@ -44,7 +44,7 @@
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@android:drawable/ic_dialog_email"/>
 
-    <top.wefor.wordfeel.ui.widget.WordExplainBar
+    <top.wefor.wordexplainbar.WordExplainBar
         android:id="@+id/wordExplainBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
